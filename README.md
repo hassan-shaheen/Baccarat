@@ -1,13 +1,13 @@
 # Audio Playback Device
 The following repository contains the code I wrote for a playback device as part of a course at UBC. This system makes use of the Avalon Memory Mapped inteface and the handshaking protocol.
 
-NOTE: All the files were initially provided by my instructor, Mieszko Lis, during the course and were not written by me.
+NOTE: All the files were initially provided by my instructor, during the course and were only edited by me.
 
 NOTE: The Flash memory was programmed with a section of the "American hero song" using the programmer tool in Quartus.
 
 s_mem.v: The quartus generated code for on-chip memory
 
-The three files I edited and implemented the code for described below:
+The three files I edited and implemented the code for are described below:
 
 flash_reader.sv: This was the first step of my implementation. This program uses an implicit statemachine to ensure the correct values are being copied from the flash memory of the De1-SoC by reading a select few ofthem and then writting them to and on-chip memory that is described and instantiated in quartus.
 
