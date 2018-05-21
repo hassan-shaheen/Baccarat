@@ -1,7 +1,7 @@
 # Audio Playback Device
 The following repository contains the code I wrote for a playback device as part of a course at UBC. This system makes use of the Avalon Memory Mapped inteface and the handshaking protocol.
 
-NOTE: All the file were initially provided by my instructor, during the course and was only edited by me.
+NOTE: All the file were initially provided by my instructor, during the course and were only edited by me.
 
 NOTE: The Flash memory was programmed with a section of the "American hero song" using the programmer tool in Quartus.
 
