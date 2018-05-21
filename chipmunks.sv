@@ -5,9 +5,7 @@ module chipmunks(input CLOCK_50, input CLOCK2_50, input [3:0] KEY, input [9:0] S
                  output [6:0] HEX3, output [6:0] HEX4, output [6:0] HEX5,
                  output [9:0] LEDR);
 			
-//TASK 6 DONE
-// signals that are used to communicate with the audio core
-// DO NOT alter these -- we will use them to test your design
+
 
 reg read_ready, write_ready, write_s;
 reg [15:0] writedata_left, writedata_right;
@@ -15,8 +13,7 @@ reg [15:0] readdata_left, readdata_right;
 logic read_s;
 logic reset;
 
-// signals that are used to communicate with the flash core
-// DO NOT alter these -- we will use them to test your design
+
 
 reg flash_mem_read;
 reg flash_mem_waitrequest;
@@ -46,7 +43,7 @@ reg signed [6:0]  divisor;
 
 enum {S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, wait_until_ready1, send_sample1, wait_for_accepted1, wait_until_ready2, send_sample2, wait_for_accepted2} state;
 
-// DO NOT alter the instance names or port names below -- we will use them to test your design
+// Interface to Audio Core of the De1 
 
 clock_generator my_clock_gen(CLOCK2_50, reset, AUD_XCK);
 audio_and_video_config cfg(CLOCK_50, reset, FPGA_I2C_SDAT, FPGA_I2C_SCLK);
@@ -177,18 +174,19 @@ always_ff @ (posedge CLOCK_50 or negedge rst_n) begin
             
             if (SW[1:0] == 2'b10)
 
-            state <= wait_until_ready1;
+            state <= wait_until_ready1; // Rewrite data (slow down)
 
             else if (SW[1:0] == 2'b01) 
 
-            state <= S11;
+            state <= S11; //Skip the data (speed up)
 
             else 
 
-            state <= S9;
+            state <= S9; //Operate normally
 
         end
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Rewirte the same half of the data to make the playback speed slower by 2 times if this is required by the switch config.
 
         wait_until_ready1: begin
             
@@ -227,7 +225,7 @@ always_ff @ (posedge CLOCK_50 or negedge rst_n) begin
             end
 
         end
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         // WRTIE THE NEXT HALF OF THE TEMP!
 
@@ -277,7 +275,7 @@ always_ff @ (posedge CLOCK_50 or negedge rst_n) begin
             
             if (SW[1:0] == 2'b10)
 
-            state <= wait_until_ready2;
+            state <= wait_until_ready2; //Rewrite second half (slow down)
 
             else 
 
@@ -286,7 +284,7 @@ always_ff @ (posedge CLOCK_50 or negedge rst_n) begin
 
         end
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Rewirte the second half of the data to make the playback speed slower by 2 times if this is required by the switch config.
 
         wait_until_ready2: begin
             
