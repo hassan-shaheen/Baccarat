@@ -11,7 +11,7 @@ chipmunks.sv:
 
 I set up an implicit statemachine that reads the data from the flash memory of the FPGA and sends it to the audio core which makes uses of FIFOs to playback the audio. 
 
-The statemachine also allows three modes of control for playback of the audio described below. The modes are accessed by configuring seitches 0-1 on the FPGA in the shown configurations.
+The statemachine also allows three modes of control for playback of the audio described below. The modes are accessed by configuring switches 0-1 on the FPGA in the shown configurations.
                
               1. SW[1:0] = 00 or 11: Normal mode(no changes to playback)
               2. SW[1:0] = 01 : Chipmink mode, Playback is twice as fast.
