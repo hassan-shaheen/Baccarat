@@ -20,5 +20,7 @@ chipmunks.sv: A statemachine that allows three modes of control for playback of 
               3. SW[1:0] = 10 : Slow mode, Playback is twice as slow.
               
  Note: Please include all the files in the "Interfaces" folder to the quartus project before running the code on the FPGA.
+ 
  Note: Also incude the .qxp file in the quartus project if running flash reader by itself (not necessary).
+ 
  Note: The De1_SoC.qsf file includes the relevant pin asssignments. make sure you import these pin assignments in quartus before running the code. 
