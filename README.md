@@ -9,9 +9,9 @@ s_mem.v: The quartus generated code for on-chip memory
 
 The three files I edited and implemented the code for are described below:
 
-flash_reader.sv: This was the first step of my implementation. This program uses an implicit statemachine to ensure the correct values are being copied from the flash memory of the De1-SoC by reading a select few ofthem and then writting them to and on-chip memory that is described and instantiated in quartus.
+flash_reader.sv: This was the first step of my implementation. This program uses an implicit statemachine to ensure the correct values are being copied from the flash memory of the De1-SoC by reading a select few of them and then writting them to and on-chip memory that was described in quartus.
 
-music.sv: A statemachine that uses the code from flash_reader to sample all the values from flah memory and sends the to the audio core of the De1-SoC which makes use of FIFOs
+music.sv: A statemachine that uses the code from flash_reader to sample all the values from flash memory and sends them to the audio core of the De1-SoC which makes use of FIFOs
 
 chipmunks.sv: A statemachine that allows three modes of control for playback of the audio described below. The modes are accessed by configuring seitches 0-1 on the FPGA in the shown configurations.
                
