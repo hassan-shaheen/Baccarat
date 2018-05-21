@@ -5,9 +5,9 @@ NOTE: All the files were initially provided by my instructor, Mieszko Lis, durin
 
 NOTE: The Flash memory was programmed with a section of the "American hero song" using the programmer tool in Quartus.
 
-The files I edited and implemented the code for described below:
-
 s_mem.v: The quartus generated code for on-chip memory
+
+The three files I edited and implemented the code for described below:
 
 flash_reader.sv: This was the first step of my implementation. This program uses an implicit statemachine to ensure the correct values are being copied from the flash memory of the De1-SoC by reading a select few ofthem and then writting them to and on-chip memory that is described and instantiated in quartus.
 
@@ -23,4 +23,4 @@ chipmunks.sv: A statemachine that allows three modes of control for playback of 
  
  Note: Also incude the .qxp file in the quartus project if running flash reader by itself (not necessary).
  
- Note: The De1_SoC.qsf file includes the relevant pin asssignments. make sure you import these pin assignments in quartus before running the code. 
+ Note: The De1_SoC.qsf file includes the relevant pin asssignments. make sure you import these pin assignments in quartus before running the code. (Also provided by my instructor)
